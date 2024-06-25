@@ -3,6 +3,9 @@ import javax.swing.*;
 import javax.swing.border.Border;
 import javax.swing.border.LineBorder;
 import java.awt.*;
+import java.awt.event.*;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
 import java.util.ArrayList;
 
 public class jmenubar {
@@ -22,37 +25,30 @@ public class jmenubar {
         this.height = h;
         this.name = name;
     }
-    public Component get_Abar(ArrayList<String> lm,String ls) {
+
+    public Component get_Abar(ArrayList<Component> lm,String ls) {
         jbar=new JMenuBar();
-        menu = new jmenu(this.xn, cnt, this.width, this.height, ls);
-        jbar.add(menu.getjmenu(lm, ls));
+        jbar.setBounds(this.xn, cnt, this.width, this.height);
+        jbar.setName(this.name);
+        jbar.setSelectionModel(new DefaultSingleSelectionModel());
+        jbar.setLayout(null);
+        jbar.setVisible(true);
         return jbar;
     }
-        public Component getjbar(ArrayList<String> ls,ArrayList<String> file,ArrayList<String>view,ArrayList<String> edit,ArrayList<String>close,ArrayList<String>help){
+
+    public Component getjbar(ArrayList<String> ls){
         jbar=new JMenuBar();
-        for (String l : ls) {
-            menu = new jmenu(this.xn, cnt, this.width, this.height, l);
-            if (l.equals(ls.get(0))) {
-                jbar.add(menu.getjmenu(file, l));
-            }
-            if (l.equals(ls.get(1))) {
-                jbar.add(menu.getjmenu(edit, l));
-            }
-            if (l.equals(ls.get(2))) {
-                jbar.add(menu.getjmenu(view, l));
-            }
-            if (l.equals(ls.get(3))) {
-                jbar.add(menu.getjmenu(close, l));
-            }
-            if (l.equals(ls.get(4))) {
-                jbar.add(menu.getjmenu(help, l));
-            }
-        }
         jbar.setName(this.name);
         Border border=new LineBorder(new Color(160, 227, 190),2,true);
         jbar.setBorder(border);
         jbar.setBackground(new Color(239, 231, 231, 137));
         jbar.setBounds(this.xn, this.yn, this.width, this.height);
+        for (int i = 0; i < ls.size(); i++) {
+            menu = new jmenu(cnt, 0,this.height, ls.get(i));
+            jbar.add(menu.getjmenu(ls.get(i)));
+            cnt+=ls.size()*12;
+        }
+
         jbar.setEnabled(true);
         jbar.setVisible(true);
         return jbar;

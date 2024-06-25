@@ -1,13 +1,11 @@
-import Mylib.jbutton;
-import Mylib.jlabel;
-import Mylib.jpanel;
+import Mylib.*;
 
-import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ComponentEvent;
 import java.awt.event.ComponentListener;
 import java.io.IOException;
 import java.util.ArrayList;
+import javax.swing.*;
 
 public class Main {
     public int width=500;
@@ -17,29 +15,36 @@ public class Main {
         Main mn = new Main();
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         frame.setResizable(true);
-        frame.setBackground(new Color(81, 174, 154));
         frame.setTitle("Main");
         frame.setSize(mn.width, mn.height);
 
-
-
-
-//        files fd=new files("src/myfile.txt");
 //        fd.writeFile("welcome");
-//
-        jbutton bt = new jbutton(0, 0, 80, 30, "button");
-        Component button= bt.getbutton();
-//        frame.add(button);
-        jlabel lab=new jlabel(90,0,30,"panel button");
-        Component welcome = lab.getlabel("welcome");
-//
+//        files fd=new files("src/myfile.txt");
+//        jbutton bt = new jbutton(0, 5, 80, 30, "button");
+//        Component button = bt.getbutton();
+////
+//        jlabel lab=new jlabel(85,5,30,"panel button");
+//        Component welcome = lab.getlabel("welcome");
 
-        jpanel pan =new jpanel(20,20,(mn.width/2),(mn.height/2),"jpanel");
-        ArrayList<Component> comp=new ArrayList<>(2);
-        comp.add(button);
-        comp.add(welcome);
-        Component getpanel = pan.getpanel(comp);
-        frame.add(getpanel);
+//        ArrayList<Component> comps=new ArrayList<>(2);
+//        comps.add(button);
+//        comps.add(welcome);
+
+//        jpanel pan =new jpanel(20,20,(mn.width/2),(mn.height/2),"jpanel");
+//        Component getpanel = pan.getpanel(comp);
+//        frame.add(getpanel);
+//        jcheckbox box=new jcheckbox(5,10,"check");
+//        Component getjbox = box.getjbox(welcome);
+//        frame.add(getjbox);
+//        ArrayList<String> tabs=new ArrayList<>(2);
+//        tabs.add("OPEN");
+//        tabs.add("FILE");
+//        jdialog dlog=new jdialog(0,0,280,140,"dlog");
+//        dlog.getdialog(comps,"SECURITY");
+//        jinternalFrame innerframe=new jinternalFrame(0,0,280,220,"inner-frame");
+//        Component welc = innerframe.getintrnalJframe(comps,"inframe");
+//        frame.add(welc);
+
 
 
 
@@ -173,14 +178,40 @@ public class Main {
 //
 //                jdialog dlog=new jdialog(0,0,260,160,"dialog");
 //                dlog.getdialog(edit,file.get(0));
-//   ArrayList<String> tabs=new ArrayList<>(4);
-//         tabs.add("File");
-//         tabs.add("Views");
-//         tabs.add("Options");
-//         tabs.add("Help");
+        ArrayList<String> tabs=new ArrayList<>(4);
+        tabs.add("File");
+         tabs.add("Views");
+         tabs.add("Options");
+         tabs.add("Help");
+
+//        jmenuitems menu1 =new jmenuitems(0,0,50,30,"menu");
+//        JMenuItem item = menu1.jmenuitem("item");
+//        frame.add(item);
+
+//         ArrayList<Component>comp=new ArrayList<>(4);
+//         comp.add(menu1.getjmenu(tabs.get(0)));
 //         jtabbedpane pane=new jtabbedpane(0,0,400,200,"tabbed");
 //         Component tabbedpane = pane.getTabbedpane(tabs);
 //         frame.add(tabbedpane);
+
+//        jmenu menu =new jmenu(0,0,50,"menu");
+//        Component getjmenu = menu.getjmenu(tabs.get(0));
+//        frame.add(getjmenu,0);
+
+//        jmenu menu1 =new jmenu(tabs.size()*12,0,50,"menu1");
+//        Component getjmenu1 = menu1.getjmenu(tabs.get(1));
+//        frame.add(getjmenu1,1);
+
+
+//        Component getjmenu1 = menu.getjmenu(tabs.get(1));
+//        Component getjmenu2 = menu.getjmenu(tabs.get(2));
+//        frame.add(getjmenu1,1);
+//        frame.add(getjmenu2,2);
+
+        jmenubar bar=new jmenubar(0,0, mn.width, 30,"bar");
+        Component getjbar = bar.getjbar(tabs);
+        frame.add(getjbar);
+
 
         frame.addComponentListener(new ComponentListener() {
             @Override

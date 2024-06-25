@@ -26,7 +26,6 @@ public class jlabel {
 
     public Component getlabel(String val) {
 //        ImageIcon icon = new ImageIcon("src/images/"+png);
-
         lab = new JLabel();
         lab.setName(this.name);
         lab.setBounds(this.xn, this.yn, this.width, this.height);

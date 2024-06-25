@@ -3,54 +3,87 @@ package Mylib;
 import javax.swing.*;
 import javax.swing.event.*;
 import java.awt.*;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.util.ArrayList;
 
 
 public class jmenu {
     JMenu menu;
     jmenuitems pop;
-    JMenuItem jmenuitem;
     int xn;
     int yn;
     int height;
-    int width;
     String name;
     int cnt = 0;
 
-    public jmenu(int xn, int yn, int w, int h, String name) {
+    public jmenu(int xn, int yn, int h, String name) {
         this.xn = xn;
         this.yn = yn;
         this.height = h;
-        this.width = w;
         this.name = name;
     }
-    public Component getjmenu(ArrayList<String> lm, String ls) {
+    public Component getjmenu(String ls) {
         menu = new JMenu();
-        menu.setBounds(this.xn, this.yn, this.width, this.height);
-        menu.setName(ls);
-        menu.setBackground(new Color(202, 223, 114));
+        menu.setBounds(this.xn, this.yn, ls.length()*12, this.height);
+        menu.setName(this.name);
+//        menu.setBackground(new Color(184, 218, 45));
         menu.setText(ls);
-        for (String s : lm) {
-            pop = new jmenuitems(10, cnt, this.width, this.height, s);
-            jmenuitem = pop.jmenuitem(s);
-            menu.add(jmenuitem);
-        }
-        menu.addMenuListener(new MenuListener() {
-            @Override
-            public void menuSelected(MenuEvent menuEvent) {
-//                System.out.println(ls);
-            }
+        pop=new jmenuitems(0,0,ls.length(),30,ls);
 
+        menu.addMouseListener(new MouseListener() {
             @Override
-            public void menuCanceled(MenuEvent menuEvent) {
+            public void mouseClicked(MouseEvent mouseEvent) {
+                System.out.println(menu.getText());
             }
-
             @Override
-            public void menuDeselected(MenuEvent menuEvent) {
+            public void mousePressed(MouseEvent mouseEvent) {
+            }
+            @Override
+            public void mouseReleased(MouseEvent mouseEvent) {
+            }
+            @Override
+            public void mouseEntered(MouseEvent mouseEvent) {
+            }
+            @Override
+            public void mouseExited(MouseEvent mouseEvent) {
             }
         });
+
         menu.setEnabled(true);
         menu.setVisible(true);
         return menu;
     }
+    public Component getjmenuComp(ArrayList<Component> ls) {
+        menu = new JMenu();
+        menu.setBounds(this.xn, this.yn, ls.size()*12, this.height);
+        menu.setName(this.name);
+//        menu.setBackground(new Color(184, 218, 45));
+        menu.setText(this.name);
+        pop=new jmenuitems(0,0,ls.size(),30,this.name);
+
+        menu.addMouseListener(new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent mouseEvent) {
+                System.out.println(menu.getText());
+            }
+            @Override
+            public void mousePressed(MouseEvent mouseEvent) {
+            }
+            @Override
+            public void mouseReleased(MouseEvent mouseEvent) {
+            }
+            @Override
+            public void mouseEntered(MouseEvent mouseEvent) {
+            }
+            @Override
+            public void mouseExited(MouseEvent mouseEvent) {
+            }
+        });
+
+        menu.setEnabled(true);
+        menu.setVisible(true);
+        return menu;
+    }
+
 }

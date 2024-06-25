@@ -2,6 +2,7 @@ package Mylib;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
 
 
 public class jinternalFrame {
@@ -18,13 +19,17 @@ public class jinternalFrame {
         this.width = w;
         this.name = name;
     }
-    public Component getintrnalJframe(String nm) {
+    public Component getintrnalJframe(ArrayList<Component>comp, String nm) {
         frame=new JInternalFrame();
         frame.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+        frame.setBounds(this.xn,this.yn,this.width,this.height);
         frame.setTitle(this.name);
-        frame.setSize(this.width,this.height);
         frame.setName(nm);
+        frame.setLayout(null);
         frame.setIconifiable(true);
+        for (int i = 0; i < comp.size(); i++) {
+            frame.add(String.valueOf(comp),comp.get(i));
+        }
         frame.setClosable(true);
         frame.setVisible(true);
         return frame;
