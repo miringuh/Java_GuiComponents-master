@@ -1,15 +1,18 @@
-import Mylib.jtabbedpane;
+import Mylib.jbutton;
+import Mylib.jlabel;
+import Mylib.jpanel;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ComponentEvent;
 import java.awt.event.ComponentListener;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class Main {
     public int width=500;
     public int height=500;
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         JFrame frame = new JFrame();
         Main mn = new Main();
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -18,11 +21,28 @@ public class Main {
         frame.setTitle("Main");
         frame.setSize(mn.width, mn.height);
 
-//        frame.setFont(new Font("San_serif", Font.BOLD,22));
-        //PANEL ++
-//        jpanel pan =new jpanel(20,20,(mn.width/2),(mn.height/2),"jpanel");
-//        pan.getComp(frame);
-//        frame.add(pan.getpanel());
+
+
+
+//        files fd=new files("src/myfile.txt");
+//        fd.writeFile("welcome");
+//
+        jbutton bt = new jbutton(0, 0, 80, 30, "button");
+        Component button= bt.getbutton();
+//        frame.add(button);
+        jlabel lab=new jlabel(90,0,30,"panel button");
+        Component welcome = lab.getlabel("welcome");
+//
+
+        jpanel pan =new jpanel(20,20,(mn.width/2),(mn.height/2),"jpanel");
+        ArrayList<Component> comp=new ArrayList<>(2);
+        comp.add(button);
+        comp.add(welcome);
+        Component getpanel = pan.getpanel(comp);
+        frame.add(getpanel);
+
+
+
         //FILE I/O
 //        database db=new database(5,180,280,80,"dbWr");
 //        db.getSource("src/myfile.txt");
@@ -153,15 +173,14 @@ public class Main {
 //
 //                jdialog dlog=new jdialog(0,0,260,160,"dialog");
 //                dlog.getdialog(edit,file.get(0));
-        
-ArrayList<String> tabs=new ArrayList<>(4);
-        tabs.add("File");
-        tabs.add("Views");
-        tabs.add("Options");
-        tabs.add("Help");
-        jtabbedpane pane=new jtabbedpane(0,0,400,200,"tabbed");
-        Component tabbedpane = pane.getTabbedpane(tabs);
-        frame.add(tabbedpane);
+//   ArrayList<String> tabs=new ArrayList<>(4);
+//         tabs.add("File");
+//         tabs.add("Views");
+//         tabs.add("Options");
+//         tabs.add("Help");
+//         jtabbedpane pane=new jtabbedpane(0,0,400,200,"tabbed");
+//         Component tabbedpane = pane.getTabbedpane(tabs);
+//         frame.add(tabbedpane);
 
         frame.addComponentListener(new ComponentListener() {
             @Override

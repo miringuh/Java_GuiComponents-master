@@ -1,9 +1,10 @@
 package Mylib;
 
-import java.awt.*;
 import javax.swing.*;
 import javax.swing.border.Border;
 import javax.swing.border.LineBorder;
+import java.awt.*;
+import java.util.ArrayList;
 
 public class jpanel extends JPanel{
     int xn;
@@ -24,18 +25,23 @@ public class jpanel extends JPanel{
         this.comp=comp;
         return comp;
     }
-    public Component getpanel(Component comp) {
+    public Component getpanel(ArrayList<Component> comp) {
         JPanel panel=new JPanel();
         panel.setToolTipText("my jpanel");
         panel.setName(this.name);
         Border border = new LineBorder(new Color(77, 134, 165, 255), 2, true);
         panel.setBorder(border);
-        panel.setOpaque(true);
-        Color color = new Color(210, 221, 221);
+//        panel.setOpaque(true);
+        panel.setBounds(this.xn,this.yn,this.width,this.height);
+        Color color = new Color(156, 191, 227, 115);
         panel.setBackground(color);
+        for (int i = 0; i < comp.size(); i++) {
+            panel.add(comp.get(i),i);
+        }
         panel.setLayout(null);
         panel.setEnabled(true);
-        panel.add(comp);
+
+
         panel.setVisible(true);
         return panel;
     }

@@ -4,8 +4,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import java.beans.PropertyChangeEvent;
-import java.beans.PropertyChangeListener;
 
 public class jlabel {
     JLabel lab;
@@ -26,9 +24,9 @@ public class jlabel {
         return comp;
     }
 
-    public Component getlabel(Component comp,String val) {
+    public Component getlabel(String val) {
 //        ImageIcon icon = new ImageIcon("src/images/"+png);
-        Component component = getparentComp(comp);
+
         lab = new JLabel();
         lab.setName(this.name);
         lab.setBounds(this.xn, this.yn, this.width, this.height);

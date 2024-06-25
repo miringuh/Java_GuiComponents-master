@@ -12,6 +12,7 @@ public class files {
 
    public byte[] readFile()throws IOException {
        FileInputStream reads=new FileInputStream(this.Filename);
+       System.out.println(reads);
        try{
             return reads.readAllBytes();
       }catch (IOException e){
