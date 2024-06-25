@@ -1,13 +1,11 @@
 package Mylib;
 
-import javax.swing.*;
-import javax.swing.border.Border;
-import javax.swing.border.LineBorder;
-import javax.swing.event.CaretEvent;
-import javax.swing.event.CaretListener;
 import java.awt.*;
 import java.awt.event.*;
 import java.io.IOException;
+import javax.swing.*;
+import javax.swing.border.Border;
+import javax.swing.border.LineBorder;
 public class database {
     int xn;
     int yn;
@@ -16,12 +14,12 @@ public class database {
     String name;
     String source;
     Component comp;
-    public database(int xn,int yn,int w,int h,String name){
+    public database(int xn,int yn,int w,int h,String nm){
         this.xn=xn;
         this.yn=yn;
         this.width=w;
         this.height=h;
-        this.name=name;
+        this.name=nm;
     }
     public Component getParent(Component comp){
         this.comp=comp;
@@ -34,7 +32,7 @@ public class database {
 
     public Component getSource() throws IOException {
         JTextArea field=new JTextArea();
-        field.setName("field");
+        field.setName(this.name);
         field.setToolTipText(field.getName());
         field.setBounds(this.xn,this.yn,this.width,this.height);
         Border border=new LineBorder(new Color(70,170,170),2,true);
@@ -51,7 +49,6 @@ public class database {
         String st=new String(chars);
         field.setText(st);
             ///////
-        String text = field.getText();
         field.getParent();
 
         field.addMouseListener(new MouseListener() {

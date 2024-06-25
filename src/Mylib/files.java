@@ -11,20 +11,17 @@ public class files {
    }
 
    public byte[] readFile()throws IOException {
-       FileInputStream reads=new FileInputStream(this.Filename);
-       System.out.println(reads);
-       try{
+       try(FileInputStream reads = new FileInputStream(this.Filename)) {
+           System.out.println(reads);
             return reads.readAllBytes();
       }catch (IOException e){
            System.out.println("ERROR "+e);
            return null;
-       }finally {
-          reads.close();
-      }
+       }
     }
    public String writeFile(String word)throws IOException {
+       FileOutputStream writes=new FileOutputStream(this.Filename);
        try{
-           FileOutputStream writes=new FileOutputStream(this.Filename);
            writes.write(word.getBytes());
            writes.close();
 
