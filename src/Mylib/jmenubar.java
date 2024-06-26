@@ -15,7 +15,6 @@ public class jmenubar {
     int height;
     String name;
 
-
     public jmenubar(int xn, int yn, int w, int h, String name) {
         this.xn = xn;
         this.yn = yn;
@@ -23,7 +22,6 @@ public class jmenubar {
         this.height = h;
         this.name = name;
     }
-
     public Component getjbar(ArrayList<String> ls,ArrayList<String> file,ArrayList<String> view,ArrayList<String> debug,ArrayList<String> options,ArrayList<String> help){
         jbar=new JMenuBar();
         jbar.setName(this.name);
@@ -36,8 +34,6 @@ public class jmenubar {
             Component getjmenu = menu.getjmenu(ls.get(i),file,view,debug,options,help);
             jbar.add(getjmenu);
         }
-
-
         jbar.setEnabled(true);
         jbar.setVisible(true);
         return jbar;

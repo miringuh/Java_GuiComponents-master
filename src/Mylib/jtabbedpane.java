@@ -24,10 +24,11 @@ public class jtabbedpane {
     }
     public Component getTabbedpane(ArrayList<String> tab) {
         tabbed_panel panel =new tabbed_panel();
-        pane=new JTabbedPane(JTabbedPane.TOP,JTabbedPane.SCROLL_TAB_LAYOUT);
+        pane = new JTabbedPane(JTabbedPane.TOP, JTabbedPane.SCROLL_TAB_LAYOUT);
+        pane.setLayout(null);
         for (int i = 0; i <tab.size(); i++) {
             pane.setName(tab.get(i));
-            pane.addTab(tab.get(i),panel.gettabbed_panel(tab.get(i)));
+            pane.addTab(tab.get(i),panel.gettabbed_panel("panned"));
         }
 
         pane.addMouseListener(new MouseListener() {

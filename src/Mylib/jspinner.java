@@ -12,11 +12,10 @@ public class jspinner {
     JSpinner spin;
     int xn;
     int yn;
-    String value;
     int height;
     int width;
     String name;
-    int[] buff={2,3,4,5};
+
     public jspinner(int xn, int yn, int w, int h, String name){
         this.xn=xn;
         this.yn=yn;
