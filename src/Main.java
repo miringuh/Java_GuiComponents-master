@@ -1,5 +1,4 @@
 import Mylib.*;
-
 import java.awt.*;
 import java.awt.event.ComponentEvent;
 import java.awt.event.ComponentListener;
@@ -191,6 +190,7 @@ public class Main {
         help.add("License");
         help.add("Documentation");
         help.add("www.website.com");
+
 
 
 
