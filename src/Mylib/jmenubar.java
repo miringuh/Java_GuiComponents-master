@@ -3,10 +3,8 @@ import javax.swing.*;
 import javax.swing.border.Border;
 import javax.swing.border.LineBorder;
 import java.awt.*;
-import java.awt.event.*;
-import java.beans.PropertyChangeEvent;
-import java.beans.PropertyChangeListener;
 import java.util.ArrayList;
+
 
 public class jmenubar {
     JMenuBar jbar;
@@ -16,7 +14,7 @@ public class jmenubar {
     int width;
     int height;
     String name;
-    int cnt=30;
+
 
     public jmenubar(int xn, int yn, int w, int h, String name) {
         this.xn = xn;
@@ -26,28 +24,19 @@ public class jmenubar {
         this.name = name;
     }
 
-    public Component get_Abar(ArrayList<Component> lm,String ls) {
-        jbar=new JMenuBar();
-        jbar.setBounds(this.xn, cnt, this.width, this.height);
-        jbar.setName(this.name);
-        jbar.setSelectionModel(new DefaultSingleSelectionModel());
-        jbar.setLayout(null);
-        jbar.setVisible(true);
-        return jbar;
-    }
-
-    public Component getjbar(ArrayList<String> ls){
+    public Component getjbar(ArrayList<String> ls,ArrayList<String> file,ArrayList<String> view,ArrayList<String> debug,ArrayList<String> options,ArrayList<String> help){
         jbar=new JMenuBar();
         jbar.setName(this.name);
-        Border border=new LineBorder(new Color(160, 227, 190),2,true);
+        Border border=new LineBorder(new Color(9, 18, 13),1,true);
         jbar.setBorder(border);
-        jbar.setBackground(new Color(239, 231, 231, 137));
+        jbar.setBackground(new Color(141, 191, 220, 137));
         jbar.setBounds(this.xn, this.yn, this.width, this.height);
         for (int i = 0; i < ls.size(); i++) {
-            menu = new jmenu(cnt, 0,this.height, ls.get(i));
-            jbar.add(menu.getjmenu(ls.get(i)));
-            cnt+=ls.size()*12;
+            menu = new jmenu(this.xn, 0,this.height,this.width, ls.get(i));
+            Component getjmenu = menu.getjmenu(ls.get(i),file,view,debug,options,help);
+            jbar.add(getjmenu);
         }
+
 
         jbar.setEnabled(true);
         jbar.setVisible(true);

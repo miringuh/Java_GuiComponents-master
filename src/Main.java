@@ -22,14 +22,12 @@ public class Main {
 //        files fd=new files("src/myfile.txt");
 //        jbutton bt = new jbutton(0, 5, 80, 30, "button");
 //        Component button = bt.getbutton();
-////
+//
 //        jlabel lab=new jlabel(85,5,30,"panel button");
 //        Component welcome = lab.getlabel("welcome");
-
 //        ArrayList<Component> comps=new ArrayList<>(2);
 //        comps.add(button);
 //        comps.add(welcome);
-
 //        jpanel pan =new jpanel(20,20,(mn.width/2),(mn.height/2),"jpanel");
 //        Component getpanel = pan.getpanel(comp);
 //        frame.add(getpanel);
@@ -44,11 +42,7 @@ public class Main {
 //        jinternalFrame innerframe=new jinternalFrame(0,0,280,220,"inner-frame");
 //        Component welc = innerframe.getintrnalJframe(comps,"inframe");
 //        frame.add(welc);
-
-
-
-
-        //FILE I/O
+//      FILE I/O
 //        database db=new database(5,180,280,80,"dbWr");
 //        db.getSource("src/myfile.txt");
 //        db.getParent(frame);
@@ -129,22 +123,7 @@ public class Main {
 //        fd.add("CLOSE");
 //        fd.add("HELP");
 //
-//        ArrayList<String> file = new ArrayList<>(4);
-//        file.add("Open");
-//        file.add("New");
-//        file.add("Recent");
-//        file.add("Exit");
-//
-//        ArrayList<String> view = new ArrayList<>(3);
-//        view.add("Settings");
-//        view.add("Tool");
-//        view.add("Appearance");
-//
-//        ArrayList<String> edit = new ArrayList<>(4);
-//        edit.add("Cut");
-//        edit.add("Copy");
-//        edit.add("Paste");
-//        edit.add("Delete");
+
 //        Icon my_icon=new ImageIcon("src/images/soccerball.png");
 //        Object[] test=new Object[6];
 //        test[0]="Team";
@@ -166,7 +145,7 @@ public class Main {
 //        help.add("www.website.com");
 //
 //        jmenubar bar = new jmenubar(0, 0, mn.width, 30, "bar");
-//        Component getjbar = bar.getjbar(fd,file,view,edit,close,help);
+//        Component getjbar = bar.getjbar(fd,file,view,help,close,help);
 //        frame.add(getjbar);
 //
 //                jinternalFrame fm=new jinternalFrame(0,40,250,250,"Internal Frame");
@@ -177,12 +156,43 @@ public class Main {
 //                frame.add(welcome);
 //
 //                jdialog dlog=new jdialog(0,0,260,160,"dialog");
-//                dlog.getdialog(edit,file.get(0));
+//                dlog.getdialog(help,file.get(0));
         ArrayList<String> tabs=new ArrayList<>(4);
         tabs.add("File");
-         tabs.add("Views");
-         tabs.add("Options");
-         tabs.add("Help");
+        tabs.add("Views");
+        tabs.add("Debug");
+        tabs.add("Options");
+        tabs.add("Help");
+
+        ArrayList<String> file = new ArrayList<>(4);
+        file.add("Open");
+        file.add("New");
+        file.add("Recent");
+        file.add("Exit");
+
+        ArrayList<String> view = new ArrayList<>(3);
+        view.add("Tool");
+        view.add("Settings");
+        view.add("Appearance");
+
+        ArrayList<String> debug = new ArrayList<>(2);
+        debug.add("Debug");
+        debug.add("Debug & Run");
+
+
+        ArrayList<String> options = new ArrayList<>(4);
+        options.add("Cut");
+        options.add("Copy");
+        options.add("Paste");
+        options.add("Delete");
+
+        ArrayList<String> help = new ArrayList<>(4);
+        help.add("Authors");
+        help.add("License");
+        help.add("Documentation");
+        help.add("www.website.com");
+
+
 
 //        jmenuitems menu1 =new jmenuitems(0,0,50,30,"menu");
 //        JMenuItem item = menu1.jmenuitem("item");
@@ -202,15 +212,15 @@ public class Main {
 //        Component getjmenu1 = menu1.getjmenu(tabs.get(1));
 //        frame.add(getjmenu1,1);
 
-
 //        Component getjmenu1 = menu.getjmenu(tabs.get(1));
 //        Component getjmenu2 = menu.getjmenu(tabs.get(2));
 //        frame.add(getjmenu1,1);
 //        frame.add(getjmenu2,2);
 
         jmenubar bar=new jmenubar(0,0, mn.width, 30,"bar");
-        Component getjbar = bar.getjbar(tabs);
+        Component getjbar = bar.getjbar(tabs,file,view,debug,options,help);
         frame.add(getjbar);
+
 
 
         frame.addComponentListener(new ComponentListener() {
